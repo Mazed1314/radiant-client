@@ -1,6 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { LiaGem } from "react-icons/lia";
 import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
@@ -28,37 +27,55 @@ const Navbar = () => {
             ? "md:border-b-4 pb-2 border-black text-black font-bold"
             : "font-bold"
         }
-        to="/surveys"
+        to="/add-product"
       >
         Add Product
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "md:border-b-4 pb-2 border-black text-black font-bold"
+            : "font-bold"
+        }
+        to="/my-product"
+      >
+        My Product
       </NavLink>
     </>
   );
   return (
-    <div className="shadow-sm px-4 md:px-8 lg:px-16 navbar z-10 bg-green-300 bg-opacity-90 fixed top-0">
+    <div className="shadow-sm px-4 md:px-8 lg:px-16 navbar z-10 bg-white bg-opacity-90 fixed top-0">
       <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            {link}
+          </ul>
+        </div>{" "}
         <a href="/" className="btn btn-ghost text-xl">
-          <img src="/images/1-removebg-preview.png" className="w-40" alt="" />
+          <img src="/images/1-removebg-preview.png" className="w-20" alt="" />
         </a>
       </div>
       <div className="navbar-center hidden md:flex">
-        <label className="input flex items-center gap-2">
-          <input type="text" className="grow" placeholder="Search" />
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="h-4 w-4 opacity-70"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
-        </label>{" "}
+        <ul className="menu menu-horizontal px-1 gap-4">{link}</ul>
       </div>
 
       <div className="navbar-end">
@@ -83,11 +100,8 @@ const Navbar = () => {
                 tabIndex={0}
                 className="space-y-1 menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <NavLink to="/dashboard" className={"hover:font-bold"}>
-                  Dashboard
-                </NavLink>
-                <NavLink to="/dashboard" className={"hover:font-bold"}>
-                  Add Product
+                <NavLink to="/profile" className={"hover:font-bold"}>
+                  Profile
                 </NavLink>
                 <NavLink
                   onClick={handleLogOut}
