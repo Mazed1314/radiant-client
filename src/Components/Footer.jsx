@@ -12,9 +12,10 @@ const Footer = () => {
                   About Us
                 </h4>
                 <p className="text-sm text-center">
-                  Radiant is a premier online product showcase platform
-                  dedicated to gathering valuable insights through user-friendly
-                  and efficient web application.
+                  Radiant is a curated platform showcasing the latest and most
+                  innovative products. Discover high-quality items that elevate
+                  your lifestyle, from cutting-edge gadgets to stylish home
+                  essentials.
                 </p>
               </div>
               <div className="mb-8 text-center">

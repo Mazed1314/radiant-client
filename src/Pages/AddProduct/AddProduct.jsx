@@ -1,7 +1,60 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleAddProduct = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const category = form.category_name.value;
+    const description = form.description.value;
+    const image = form.photo.value;
+    const email = user.email;
+    const user_name = user.displayName;
+    const user_image = user.photoURL;
+    const publishDate = new Date().toISOString().split("T")[0];
+
+    const addNewProduct = {
+      name,
+      category,
+      description,
+      image,
+      email,
+      user_name,
+      user_image,
+      publishDate,
+    };
+    console.log(addNewProduct);
+
+    const url = "https://radiant-server-opal.vercel.app/addProduct";
+    // send data to the server
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addNewProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Added Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          navigate(-1);
+        }
+      });
+  };
+
   return (
     <div>
       <div>
@@ -12,7 +65,7 @@ const AddProduct = () => {
           <h2 className="text-3xl text-center font-semibold my-4">
             Add a Product
           </h2>
-          <form>
+          <form onSubmit={handleAddProduct}>
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text text-lg font-semibold">
@@ -57,19 +110,16 @@ const AddProduct = () => {
                   name="category_name"
                   className="rounded-md border border-black"
                 >
-                  <option value="Travel">Travel</option>
-                  <option value="Technology">Technology</option>
-                  <option value="Finance">Finance</option>
-                  <option value="News">News</option>
-                  <option value="Literature">Literature</option>
-                  <option value="Fashion">Fashion </option>
-                  <option value="Beauty">Beauty</option>
-                  <option value="Lifestyle">Lifestyle</option>
-                  <option value="Parenting">Parenting</option>
-                  <option value="Food">Food</option>
-                  <option value="Health">Health</option>
-                  <option value="Art&Craft">Art&Craft</option>
-                  <option value="Photography">Photography</option>
+                  <option value="Travel">Man's Fashion</option>
+                  <option value="Technology">Women's Fashion</option>
+                  <option value="Finance">Electronic Accessories</option>
+                  <option value="News">Home appliances</option>
+                  <option value="Literature">Electronics Device</option>
+                  <option value="Fashion">Mother & Baby </option>
+                  <option value="Beauty">Groceries</option>
+                  <option value="Lifestyle">Home & Lifestyle</option>
+                  <option value="Parenting">Health & Beauty </option>
+                  <option value="Food">Jewelry</option>
                 </select>
               </div>
               <div className="form-control">
