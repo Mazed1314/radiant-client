@@ -50,7 +50,7 @@ const AddProduct = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
-          navigate(-1);
+          navigate("/");
         }
       });
   };

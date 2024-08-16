@@ -31,7 +31,7 @@ const Login = () => {
         if (userCredential.user) {
           const addNewUser = { name, email, photoURL, role };
 
-          const url = "http://localhost:5000/user";
+          const url = "https://radiant-server-opal.vercel.app/user";
           // send data to the server
 
           fetch(url, {
@@ -77,7 +77,7 @@ const Login = () => {
         if (userCredential.user) {
           const addNewUser = { name, email, photoURL, role };
 
-          const url = "http://localhost:5000/user";
+          const url = "https://radiant-server-opal.vercel.app/user";
           // send data to the server
 
           fetch(url, {

@@ -63,7 +63,7 @@ const Register = () => {
         // console.log(userCredential.user);
         const addNewUser = { name, email, photoURL, role, password };
 
-        const url = "http://localhost:5000/user";
+        const url = "https://radiant-server-opal.vercel.app/user";
         // send data to the server
 
         fetch(url, {
