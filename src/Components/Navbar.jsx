@@ -27,6 +27,16 @@ const Navbar = () => {
             ? "md:border-b-4 pb-2 border-black text-black font-bold"
             : "font-bold"
         }
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "md:border-b-4 pb-2 border-black text-black font-bold"
+            : "font-bold"
+        }
         to="/add-product"
       >
         Add Product

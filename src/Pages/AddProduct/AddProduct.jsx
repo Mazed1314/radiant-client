@@ -11,6 +11,7 @@ const AddProduct = () => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const brand = form.brand.value;
     const category = form.category_name.value;
     const description = form.description.value;
     const image = form.photo.value;
@@ -21,6 +22,7 @@ const AddProduct = () => {
 
     const addNewProduct = {
       name,
+      brand,
       category,
       description,
       image,
@@ -103,6 +105,22 @@ const AddProduct = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-lg font-semibold">
+                    Brand Name
+                  </span>
+                </label>
+                <label className="input-group">
+                  <input
+                    type="text"
+                    name="brand"
+                    placeholder="brand"
+                    className="input input-bordered border-black w-full"
+                    required
+                  />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-lg font-semibold">
                     Category Name
                   </span>
                 </label>
@@ -110,16 +128,18 @@ const AddProduct = () => {
                   name="category_name"
                   className="rounded-md border border-black"
                 >
-                  <option value="Travel">Man's Fashion</option>
-                  <option value="Technology">Women's Fashion</option>
-                  <option value="Finance">Electronic Accessories</option>
-                  <option value="News">Home appliances</option>
-                  <option value="Literature">Electronics Device</option>
-                  <option value="Fashion">Mother & Baby </option>
-                  <option value="Beauty">Groceries</option>
-                  <option value="Lifestyle">Home & Lifestyle</option>
-                  <option value="Parenting">Health & Beauty </option>
-                  <option value="Food">Jewelry</option>
+                  <option value="Man's Fashion">Man's Fashion</option>
+                  <option value="Women's Fashion">Women's Fashion</option>
+                  <option value="Electronic Accessories">
+                    Electronic Accessories
+                  </option>
+                  <option value="Home appliances">Home appliances</option>
+                  <option value="Electronics Device">Electronics Device</option>
+                  <option value="Mother & Baby">Mother & Baby </option>
+                  <option value="Groceries">Groceries</option>
+                  <option value="Home & Lifestyle">Home & Lifestyle</option>
+                  <option value="Health & Beauty">Health & Beauty </option>
+                  <option value="Jewelry">Jewelry</option>
                 </select>
               </div>
               <div className="form-control">
