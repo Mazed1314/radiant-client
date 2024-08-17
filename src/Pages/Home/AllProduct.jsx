@@ -1,43 +1,55 @@
-import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { IoIosSearch } from "react-icons/io";
 import ProductCard from "../../Components/ProductCard";
 import { useEffect, useState } from "react";
+import { Commet } from "react-loading-indicators";
 
 const AllProduct = () => {
+  const [productPerPage] = useState(9);
   const [count, setCount] = useState(0);
+  const [product, setProduct] = useState([]);
   const [currentPage, setCurrentPage] = useState();
   const [filter, setFilter] = useState("");
   const [search, setSearch] = useState("");
 
-  const { data: getProduct = [] } = useQuery({
-    queryFn: () => getData(),
-    queryKey: ["product"],
-  });
-  const getData = async () => {
-    const { data } = await axios(
-      `https://radiant-server-opal.vercel.app/products`
-    );
+  useEffect(() => {
+    fetch("http://localhost:5000/productsCount")
+      .then((res) => res.json())
+      .then((data) => setCount(data.count));
+  }, []);
 
-    setCount([data.length]);
-    return data;
-  };
-  const itemPerPage = 12;
-  const numberOfPage = Math.ceil(count / itemPerPage);
+  console.log(count);
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/products?page=${currentPage}&size=${productPerPage}&filter=${filter}&search=${search}`
+    )
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, [currentPage, productPerPage, search, filter]);
+
+  // for pagination------------------------------------------------------
+  const numberOfPage = Math.ceil(count / productPerPage);
   const pages = [...Array(numberOfPage).keys()];
 
   const handlePageButton = (e) => {
     setCurrentPage(e);
   };
 
-  console.log(pages);
+  //for searching--------------------------------------------------------------
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const title = e.target.title.value;
+    setSearch(title);
+    console.log(search);
+    // e.target.title.value = null;
+  };
 
   return (
     <div className="">
       {/* search bar */}
       <div className="pt-7">
         {/* search for mobile */}
-        <form action="" className="md:hidden">
+        <form action="" onSubmit={handleSearch} className="md:hidden">
           <label className="form-control ">
             <div className="flex h-10 w-full bg-white border border-gray-700 rounded-md">
               <input
@@ -81,7 +93,11 @@ const AllProduct = () => {
           </label>
 
           {/* search */}
-          <form action="" className="hidden md:block mt-7">
+          <form
+            action=""
+            onSubmit={handleSearch}
+            className="hidden md:block mt-7"
+          >
             <label className="form-control ">
               <div className="flex h-10 w-full bg-white border border-gray-700 rounded-md">
                 <input
@@ -113,9 +129,10 @@ const AllProduct = () => {
           </label>
         </div>
       </div>
-      {/* Product cards */}
+
+      {/* Product cards  */}
       <div className="md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 py-8 md:py-20">
-        {getProduct.map((product) => (
+        {product.map((product) => (
           <>
             <ProductCard key={product._id} product={product}></ProductCard>
           </>
