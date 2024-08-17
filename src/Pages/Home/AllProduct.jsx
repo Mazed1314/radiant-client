@@ -13,7 +13,7 @@ const AllProduct = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/productsCount")
+    fetch("https://radiant-server-opal.vercel.app/productsCount")
       .then((res) => res.json())
       .then((data) => setCount(data.count));
   }, []);
@@ -21,7 +21,7 @@ const AllProduct = () => {
   console.log(count);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/products?page=${currentPage}&size=${productPerPage}&filter=${filter}&search=${search}`
+      `https://radiant-server-opal.vercel.app/products?page=${currentPage}&size=${productPerPage}&filter=${filter}&search=${search}`
     )
       .then((res) => res.json())
       .then((data) => setProduct(data));
