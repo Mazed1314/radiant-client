@@ -1,4 +1,5 @@
 import { BsStars } from "react-icons/bs";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { IoPricetagsSharp } from "react-icons/io5";
 import { MdDateRange, MdVerified } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
@@ -70,8 +71,68 @@ const ProductCard = ({ product }) => {
                       </button>
                     </form>
                     <h3 className="font-bold text-lg">Rate this product</h3>
-                    <p className="py-4">
-                      Press ESC key or click on ✕ button to close
+                    <p className="py-4 flex gap-4 justify-around">
+                      <div className="rating rating-lg rating-half">
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="rating-hidden"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
+                          defaultChecked
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
+                        />
+                        <input
+                          type="radio"
+                          name="rating-10"
+                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
+                        />
+                      </div>
+                      <a href="/">
+                        <FaArrowRightLong className="mt-4" />
+                      </a>
                     </p>
                   </div>
                 </dialog>
