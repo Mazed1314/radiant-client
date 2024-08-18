@@ -11,6 +11,7 @@ import AddProduct from "./Pages/AddProduct/AddProduct";
 import PrivateRoute from "./Routes/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import MyProduct from "./Pages/MyProduct/MyProduct";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -39,6 +40,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-product",
+        element: (
+          <PrivateRoute>
+            <MyProduct></MyProduct>
           </PrivateRoute>
         ),
       },

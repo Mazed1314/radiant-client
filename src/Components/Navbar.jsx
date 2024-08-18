@@ -23,9 +23,7 @@ const Navbar = () => {
     <>
       <NavLink
         className={({ isActive }) =>
-          isActive
-            ? "md:border-b-4 pb-2 border-black text-black font-bold"
-            : "font-bold"
+          isActive ? "text-yellow-500 font-bold" : "font-bold"
         }
         to="/"
       >
@@ -33,9 +31,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          isActive
-            ? "md:border-b-4 pb-2 border-black text-black font-bold"
-            : "font-bold"
+          isActive ? "text-yellow-500 font-bold" : "font-bold"
         }
         to="/add-product"
       >
@@ -43,9 +39,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-          isActive
-            ? "md:border-b-4 pb-2 border-black text-black font-bold"
-            : "font-bold"
+          isActive ? "text-yellow-500 font-bold" : "font-bold"
         }
         to="/my-product"
       >

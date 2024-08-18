@@ -13,6 +13,7 @@ const AddProduct = () => {
     const name = form.name.value;
     const brand = form.brand.value;
     const category = form.category_name.value;
+    const price = form.price.value;
     const description = form.description.value;
     const image = form.photo.value;
     const email = user.email;
@@ -26,6 +27,7 @@ const AddProduct = () => {
       category,
       description,
       image,
+      price,
       email,
       user_name,
       user_image,
@@ -63,7 +65,7 @@ const AddProduct = () => {
         <Helmet>
           <title>Radiant | Add Product</title>
         </Helmet>
-        <div className="bg-transparent border border-black shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
+        <div className="bg-transparent border border-yellow-500 shadow-2xl p-4 md:w-2/3 mx-auto rounded-md my-16">
           <h2 className="text-3xl text-center font-semibold my-4">
             Add a Product
           </h2>
@@ -80,7 +82,7 @@ const AddProduct = () => {
                   type="text"
                   name="name"
                   placeholder="name"
-                  className="input input-bordered border-black w-full"
+                  className="input input-bordered border-yellow-500 w-full"
                   required
                 />
               </label>
@@ -97,13 +99,14 @@ const AddProduct = () => {
                   type="text"
                   name="photo"
                   placeholder="give image URL"
-                  className="input input-bordered border-black  w-full"
+                  className="input input-bordered border-yellow-500  w-full"
                   required
                 />
               </label>
             </div>
-            {/* brand */}
+
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 my-3">
+              {/* brand */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-lg font-semibold">
@@ -115,11 +118,12 @@ const AddProduct = () => {
                     type="text"
                     name="brand"
                     placeholder="brand"
-                    className="input input-bordered border-black w-full"
+                    className="input input-bordered border-yellow-500 w-full"
                     required
                   />
                 </label>
               </div>
+              {/* category */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-lg font-semibold">
@@ -128,7 +132,7 @@ const AddProduct = () => {
                 </label>
                 <select
                   name="category_name"
-                  className="rounded-md border border-black"
+                  className="rounded-md border border-yellow-500"
                 >
                   <option value="Man's_Fashion">Man's Fashion</option>
                   <option value="Women's_Fashion">Women's Fashion</option>
@@ -144,6 +148,7 @@ const AddProduct = () => {
                   <option value="Jewelry">Jewelry</option>
                 </select>
               </div>
+              {/* price */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-lg font-semibold">
@@ -155,7 +160,7 @@ const AddProduct = () => {
                     type="number"
                     name="price"
                     placeholder="price"
-                    className="input input-bordered border-black w-full"
+                    className="input input-bordered border-yellow-500 w-full"
                     required
                   />
                 </label>
@@ -169,7 +174,7 @@ const AddProduct = () => {
                 </span>
               </label>
               <textarea
-                className="rounded-lg pl-3 pt-2 border border-black bg-base-200"
+                className="rounded-lg pl-3 pt-2 border border-yellow-500 bg-base-200"
                 name="description"
                 placeholder="description"
                 rows="5"
@@ -182,7 +187,7 @@ const AddProduct = () => {
               <input
                 type="submit"
                 value="Add"
-                className="btn btn-md border text-white bg-black text-lg font-bold"
+                className="btn btn-md border text-white bg-yellow-500 text-lg font-bold"
               />
             </div>
           </form>

@@ -1,24 +1,18 @@
 import { BsStars } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { IoPricetagsSharp } from "react-icons/io5";
 import { MdDateRange, MdVerified } from "react-icons/md";
 import { PiArrowSquareOut } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const {
-    _id,
-    name,
-    category,
-    description,
-    image,
-    brand,
-    price,
-    email,
-    user_name,
-    user_image,
-    publishDate,
-  } = product;
+  const { _id, name, category, description, image, brand, price, publishDate } =
+    product;
+
+  // const addNewRating = { currentUserEmail, currentUserName, _id };
+  // const handleSubmitRating = async () => {
+  //   console.log(addNewRating);
+  // };
+
   return (
     <div className="">
       <div className="rounded border shadow-xl">
@@ -130,8 +124,8 @@ const ProductCard = ({ product }) => {
                           className="mask mask-star-2 mask-half-2 bg-yellow-500"
                         />
                       </div>
-                      <a href="/">
-                        <FaArrowRightLong className="mt-4" />
+                      <a className="btn bg-transparent">
+                        <FaArrowRightLong className="mt-2" />
                       </a>
                     </p>
                   </div>

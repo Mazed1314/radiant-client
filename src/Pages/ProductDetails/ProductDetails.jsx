@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const products = useLoaderData();
   const { _id } = useParams();
   const product = products.find((p) => p._id == _id);
-
+  const currentUserEmail = user.email;
   const {
     name,
     category,
@@ -57,7 +57,18 @@ const ProductDetails = () => {
             {description}
           </div>
         </div>
-        {/* todo : edit and delete  button */}
+        <div>
+          {email === currentUserEmail && (
+            <div className="flex justify-center">
+              <NavLink
+                to={`/edit-product/${_id}`}
+                className="btn btn-sm mt-2 rounded text-yellow-500 border-yellow-500 bg-transparent hover:bg-yellow-500 hover:text-white"
+              >
+                Edit
+              </NavLink>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* comment section */}
