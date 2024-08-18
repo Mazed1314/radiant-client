@@ -1,5 +1,3 @@
-import { BsStars } from "react-icons/bs";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { MdDateRange, MdVerified } from "react-icons/md";
 import { PiArrowSquareOut } from "react-icons/pi";
 import { Link } from "react-router-dom";
@@ -7,11 +5,6 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
   const { _id, name, category, description, image, brand, price, publishDate } =
     product;
-
-  // const addNewRating = { currentUserEmail, currentUserName, _id };
-  // const handleSubmitRating = async () => {
-  //   console.log(addNewRating);
-  // };
 
   return (
     <div className="">
@@ -38,100 +31,11 @@ const ProductCard = ({ product }) => {
             <p>{description.slice(0, 25)}... </p>
 
             <div className="flex my-3 text-red-600 font-medium">{price} $</div>
-            <div className="flex mb-3">
+            <div className="flex justify-between mb-3">
               <span className="flex">
                 <MdDateRange className="mt-1" />
-                {publishDate} |
+                {publishDate}
               </span>{" "}
-              {/* <div className="divider divider-horizontal"></div> */}
-              <div className="flex gap-1 mx-1">
-                <div className="tooltip" data-tip="give rate">
-                  <a
-                    onClick={() =>
-                      document.getElementById("my_modal_3").showModal()
-                    }
-                  >
-                    <BsStars className="text-lg mt-1 text-yellow-400" />
-                  </a>
-                </div>{" "}
-                (31)
-                {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                <dialog id="my_modal_3" className="modal">
-                  <div className="modal-box">
-                    <form method="dialog">
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                        ✕
-                      </button>
-                    </form>
-                    <h3 className="font-bold text-lg">Rate this product</h3>
-                    <p className="py-4 flex gap-4 justify-around">
-                      <div className="rating rating-lg rating-half">
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="rating-hidden"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
-                          defaultChecked
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-1 bg-yellow-500"
-                        />
-                        <input
-                          type="radio"
-                          name="rating-10"
-                          className="mask mask-star-2 mask-half-2 bg-yellow-500"
-                        />
-                      </div>
-                      <a className="btn bg-transparent">
-                        <FaArrowRightLong className="mt-2" />
-                      </a>
-                    </p>
-                  </div>
-                </dialog>
-              </div>{" "}
-              |
               <Link
                 to={`/view-details/${_id}`}
                 className="ml-1 font-semibold flex"

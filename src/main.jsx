@@ -13,6 +13,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import MyProduct from "./Pages/MyProduct/MyProduct";
 import EditProduct from "./Pages/EditProduct/EditProduct";
+import Profile from "./Pages/Profile/Profile";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
