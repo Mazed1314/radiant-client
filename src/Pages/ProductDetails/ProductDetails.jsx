@@ -2,6 +2,7 @@ import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { MdDateRange } from "react-icons/md";
 import { Helmet } from "react-helmet";
+import { BsStars } from "react-icons/bs";
 
 const ProductDetails = () => {
   const { user } = useAuth();
@@ -56,9 +57,18 @@ const ProductDetails = () => {
           <div className="py-4 md:py-8 text-lg text-gray-500">
             {description}
           </div>
+          <div className="mb-3 space-y-4 text-xl font-medium">
+            <div className="flex text-red-600 font-medium">{price} $</div>
+            <div className="flex gap-1 mx-1">
+              <div className="flex">
+                <BsStars className="text-2xl mt-1 text-yellow-400" />
+              </div>{" "}
+              <span className="text-gray-600">(31)</span>
+            </div>{" "}
+          </div>
         </div>
         <div>
-          {email === currentUserEmail && (
+          {email === currentUserEmail ? (
             <div className="flex justify-center">
               <NavLink
                 to={`/edit-product/${_id}`}
@@ -67,6 +77,17 @@ const ProductDetails = () => {
                 Edit
               </NavLink>
             </div>
+          ) : (
+            <>
+              <div className="flex justify-center my-2">
+                <NavLink
+                  to={`/`}
+                  className="btn mt-2 rounded text-yellow-500 border-yellow-500 bg-transparent hover:bg-yellow-500 hover:text-white"
+                >
+                  Buy
+                </NavLink>
+              </div>
+            </>
           )}
         </div>
       </div>
