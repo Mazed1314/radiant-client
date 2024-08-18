@@ -1,5 +1,3 @@
-// import axios from "axios";
-import { IoIosSearch } from "react-icons/io";
 import ProductCard from "../../Components/ProductCard";
 import { useEffect, useState } from "react";
 
@@ -23,27 +21,29 @@ const AllProduct = () => {
       `https://radiant-server-opal.vercel.app/products?page=${currentPage}&size=${productPerPage}&filter=${filter}&search=${search}&sort=${sort}`
     )
       .then((res) => res.json())
-      .then((data) => setProduct(data));
+      .then((data) => {
+        setProduct(data);
+      });
   }, [currentPage, productPerPage, search, filter, sort]);
 
   // for pagination------------------------------------------------------
-  // const numberOfPage = Math.ceil(count / productPerPage);
-  // const pages = [...Array(numberOfPage).keys()];
+  const numberOfPage = Math.ceil(count / productPerPage);
+  const pages = [...Array(numberOfPage).keys()];
 
-  // const handlePageButton = (e) => {
-  //   setCurrentPage(e);
-  // };
-
+  const handlePageButton = (e) => {
+    setCurrentPage(e);
+  };
+  // for searching------------------------------------------------------
   const handleSearch = (e) => {
     e.preventDefault();
     const title = e.target.name.value;
     setSearch(title);
   };
-
+  // for filtering------------------------------------------------------
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
   };
-
+  // for sorting------------------------------------------------------
   const handleSortChange = (e) => {
     setSort(e.target.value);
   };
@@ -81,7 +81,6 @@ const AllProduct = () => {
         </form>
         <div className="flex gap-5 justify-between ">
           {/* filter */}
-
           <label>
             <div className="label">
               <span className="label-text">Filtered by category</span>
@@ -99,10 +98,10 @@ const AllProduct = () => {
               </option>
               <option value="Home_appliances">Home appliances</option>
               <option value="Electronics_Device">Electronics Device</option>
-              <option value="Mother_&_Baby">Mother & Baby </option>
+              <option value="Mother_Baby">Mother & Baby </option>
               <option value="Groceries">Groceries</option>
-              <option value="Home_&_Lifestyle">Home & Lifestyle</option>
-              <option value="Health_&_Beauty">Health & Beauty </option>
+              <option value="Home_Lifestyle">Home & Lifestyle</option>
+              <option value="Health_Beauty">Health & Beauty </option>
               <option value="Jewelry">Jewelry</option>
             </select>
           </label>
@@ -168,12 +167,12 @@ const AllProduct = () => {
       </div>
 
       {/* pagination */}
-      {/* <div className=" w-3/5 mx-auto">
+      <div className=" w-3/5 mx-auto">
         <div className="join flex justify-center mb-12">
           <button
             disabled={currentPage === 1}
             onClick={() => handlePageButton(currentPage - 1)}
-            className="join-item btn rounded-lg border-black bg-transparent text-xl"
+            className="join-item btn rounded-lg text-yellow-500 border-yellow-500 bg-transparent text-xl"
           >
             «
           </button>
@@ -184,8 +183,8 @@ const AllProduct = () => {
                 key={index}
                 className={`${
                   currentPage === index + 1
-                    ? "bg-black text-white"
-                    : "bg-base-100 border border-black"
+                    ? "bg-yellow-500 text-white"
+                    : "bg-base-100 border text-yellow-500 border-yellow-500"
                 } join-item btn mx-1`}
               >
                 {index + 1}
@@ -196,12 +195,12 @@ const AllProduct = () => {
           <button
             disabled={currentPage === numberOfPage}
             onClick={() => handlePageButton(currentPage + 1)}
-            className="join-item btn rounded-lg border-black bg-transparent text-xl"
+            className="join-item btn rounded-lg text-yellow-500 border-yellow-500 bg-transparent text-xl"
           >
             »
           </button>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

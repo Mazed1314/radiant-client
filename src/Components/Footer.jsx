@@ -2,9 +2,9 @@ import { FaGooglePlay } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer class="bg-yellow-400 py-8 text-gray-700">
+    <footer class="bg-yellow-400 py-8 text-black">
       <div class="px-2 md:px-20">
-        <div class="flex flex-col md:flex-row justify-between border-b-2 border-dashed border-gray-700 pb-8">
+        <div class="flex flex-col md:flex-row justify-between border-b-2 border-dashed border-black pb-8">
           <div className="mx-auto px-2 md:px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="mb-8">
@@ -31,7 +31,7 @@ const Footer = () => {
               <div className="mb-8 ">
                 <h3 class="text-xl font-bold p-4">Download our app</h3>
 
-                <button class="border border-gray-700 rounded-lg flex justify-center">
+                <button class="border border-black rounded-lg flex justify-center">
                   <a href="#" class="mt-3 p-2">
                     <FaGooglePlay className="text-2xl" />
                   </a>

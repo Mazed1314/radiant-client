@@ -2,8 +2,8 @@ import { BsStars } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoPricetagsSharp } from "react-icons/io5";
 import { MdDateRange, MdVerified } from "react-icons/md";
-import { TbCurrencyTaka } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
+import { PiArrowSquareOut } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const {
@@ -42,18 +42,15 @@ const ProductCard = ({ product }) => {
           </figure>
           <div className="px-4 py-2 flex flex-col justify-between">
             <p>{description.slice(0, 25)}... </p>
-            <NavLink to={`/view-details/${_id}`}>View Details</NavLink>
-            <div className="flex my-3">
-              {price}
-              <TbCurrencyTaka className="text-xl" />
-            </div>
+
+            <div className="flex my-3 text-red-600 font-medium">{price} $</div>
             <div className="flex mb-3">
               <span className="flex">
                 <MdDateRange className="mt-1" />
                 {publishDate} |
               </span>{" "}
               {/* <div className="divider divider-horizontal"></div> */}
-              <div className="flex gap-1 ml-1">
+              <div className="flex gap-1 mx-1">
                 <div className="tooltip" data-tip="give rate">
                   <a
                     onClick={() =>
@@ -139,7 +136,15 @@ const ProductCard = ({ product }) => {
                     </p>
                   </div>
                 </dialog>
-              </div>
+              </div>{" "}
+              |
+              <Link
+                to={`/view-details/${_id}`}
+                className="ml-1 font-semibold flex"
+              >
+                Details
+                <PiArrowSquareOut className="mt-1 font-semibold" />
+              </Link>
             </div>
           </div>
         </div>

@@ -57,18 +57,7 @@ const ProductDetails = () => {
             {description}
           </div>
         </div>
-        {/* <div className="mb-10">
-          {blogOwner === currentUserEmail && (
-            <div className="flex justify-center">
-              <NavLink
-                to={`/edit-product/${_id}`}
-                className="btn btn-sm mt-2 rounded text-black border-black bg-transparent hover:bg-black hover:text-white"
-              >
-                Update
-              </NavLink>
-            </div>
-          )}
-        </div> */}
+        {/* todo : edit and delete  button */}
       </div>
 
       {/* comment section */}

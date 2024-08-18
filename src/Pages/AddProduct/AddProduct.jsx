@@ -68,6 +68,7 @@ const AddProduct = () => {
             Add a Product
           </h2>
           <form onSubmit={handleAddProduct}>
+            {/*product name */}
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text text-lg font-semibold">
@@ -84,6 +85,7 @@ const AddProduct = () => {
                 />
               </label>
             </div>
+            {/*product image */}
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text text-lg font-semibold">
@@ -100,7 +102,7 @@ const AddProduct = () => {
                 />
               </label>
             </div>
-
+            {/* brand */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 my-3">
               <div className="form-control">
                 <label className="label">
@@ -135,10 +137,10 @@ const AddProduct = () => {
                   </option>
                   <option value="Home_appliances">Home appliances</option>
                   <option value="Electronics_Device">Electronics Device</option>
-                  <option value="Mother_&_Baby">Mother & Baby </option>
+                  <option value="Mother_Baby">Mother & Baby </option>
                   <option value="Groceries">Groceries</option>
-                  <option value="Home_&_Lifestyle">Home & Lifestyle</option>
-                  <option value="Health_&_Beauty">Health & Beauty </option>
+                  <option value="Home_Lifestyle">Home & Lifestyle</option>
+                  <option value="Health_Beauty">Health & Beauty </option>
                   <option value="Jewelry">Jewelry</option>
                 </select>
               </div>
@@ -159,7 +161,7 @@ const AddProduct = () => {
                 </label>
               </div>
             </div>
-
+            {/* description */}
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-lg font-semibold">
