@@ -3,9 +3,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { IoPricetagsSharp } from "react-icons/io5";
 import { MdDateRange, MdVerified } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const {
+    _id,
     name,
     category,
     description,
@@ -40,6 +42,7 @@ const ProductCard = ({ product }) => {
           </figure>
           <div className="px-4 py-2 flex flex-col justify-between">
             <p>{description.slice(0, 25)}... </p>
+            <NavLink to={`/view-details/${_id}`}>View Details</NavLink>
             <div className="flex my-3">
               {price}
               <TbCurrencyTaka className="text-xl" />

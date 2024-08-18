@@ -128,17 +128,17 @@ const AddProduct = () => {
                   name="category_name"
                   className="rounded-md border border-black"
                 >
-                  <option value="Man's Fashion">Man's Fashion</option>
-                  <option value="Women's Fashion">Women's Fashion</option>
-                  <option value="Electronic Accessories">
+                  <option value="Man's_Fashion">Man's Fashion</option>
+                  <option value="Women's_Fashion">Women's Fashion</option>
+                  <option value="Electronic_Accessories">
                     Electronic Accessories
                   </option>
-                  <option value="Home appliances">Home appliances</option>
-                  <option value="Electronics Device">Electronics Device</option>
-                  <option value="Mother & Baby">Mother & Baby </option>
+                  <option value="Home_appliances">Home appliances</option>
+                  <option value="Electronics_Device">Electronics Device</option>
+                  <option value="Mother_&_Baby">Mother & Baby </option>
                   <option value="Groceries">Groceries</option>
-                  <option value="Home & Lifestyle">Home & Lifestyle</option>
-                  <option value="Health & Beauty">Health & Beauty </option>
+                  <option value="Home_&_Lifestyle">Home & Lifestyle</option>
+                  <option value="Health_&_Beauty">Health & Beauty </option>
                   <option value="Jewelry">Jewelry</option>
                 </select>
               </div>

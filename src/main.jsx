@@ -10,6 +10,7 @@ import HomePage from "./Pages/Home/HomePage";
 import AddProduct from "./Pages/AddProduct/AddProduct";
 import PrivateRoute from "./Routes/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -40,6 +41,15 @@ const router = createBrowserRouter([
             <AddProduct></AddProduct>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/view-details/:_id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("https://radiant-server-opal.vercel.app/products"),
       },
       {
         path: "/my-product",
