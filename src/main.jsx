@@ -14,6 +14,7 @@ import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 import MyProduct from "./Pages/MyProduct/MyProduct";
 import EditProduct from "./Pages/EditProduct/EditProduct";
 import Profile from "./Pages/Profile/Profile";
+import EditProfile from "./Pages/Profile/EditProfile";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -46,12 +47,12 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/add-product",
-        element: (
-          <PrivateRoute>
-            <AddProduct></AddProduct>
-          </PrivateRoute>
-        ),
+        path: "/profile",
+        element: <Login></Login>,
+      },
+      {
+        path: "profile/edit-user/:id",
+        element: <EditProfile></EditProfile>,
       },
       {
         path: "/my-product",

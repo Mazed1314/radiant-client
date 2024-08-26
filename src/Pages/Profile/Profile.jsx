@@ -1,16 +1,23 @@
-import { useContext } from "react";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useAuth from "../../Hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const Profile = () => {
   const { user } = useAuth();
-  // console.log(user);
+  const [id, setId] = useState();
+
+  useEffect(() => {
+    fetch(`https://radiant-server-opal.vercel.app/users/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setId(data._id));
+  }, [user]);
+  // console.log(id);
   return (
     <div className="flex justify-center py-4 rounded-t-md ">
       <Helmet>
-        <title>ProseParadise | {user?.displayName}</title>
+        <title>Radiant | {user?.displayName}</title>
       </Helmet>
       <div className="relative flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 card border contrast-125 border-black drop-shadow-2xl mb-4 shrink-0 w-full max-w-sm  bg-base-100">
         <img
@@ -38,7 +45,7 @@ const Profile = () => {
             </p>
           </div>
           <div className="flex justify-center pt-2 space-x-4 align-center">
-            <Link to={"/"}>
+            <Link to={`edit-user/${id}`}>
               <FaEdit className="absolute top-2 right-2 text-2xl hover:text-blue-600" />
             </Link>
             <a
