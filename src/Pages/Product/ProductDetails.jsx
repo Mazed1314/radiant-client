@@ -1,9 +1,4 @@
-import {
-  NavLink,
-  useLoaderData,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { NavLink, useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { MdDateRange } from "react-icons/md";
 import { Helmet } from "react-helmet";
@@ -17,7 +12,6 @@ const ProductDetails = () => {
   const products = useLoaderData();
   const { _id } = useParams();
   const [rating, setRating] = useState([]);
-  const navigate = useNavigate();
 
   const product = products.find((p) => p._id == _id);
   const currentUserEmail = user.email;
@@ -65,7 +59,7 @@ const ProductDetails = () => {
 
             confirmButtonText: "ok",
           });
-          navigate("/");
+          location.reload(true);
         }
       });
   };
@@ -188,12 +182,15 @@ const ProductDetails = () => {
                           className="mask mask-star-2 mask-half-2 bg-yellow-500"
                         />
                       </div>
-                      <a
-                        onClick={handleSubmitRating}
-                        className="btn bg-transparent"
-                      >
-                        <FaArrowRightLong className="mt-2" />
-                      </a>
+
+                      <form method="dialog">
+                        <button
+                          onClick={handleSubmitRating}
+                          className="btn bg-transparent"
+                        >
+                          <FaArrowRightLong className="mt-2" />
+                        </button>
+                      </form>
                     </p>
                   </div>
                 </dialog>
