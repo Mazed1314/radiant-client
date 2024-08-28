@@ -7,14 +7,14 @@ import Register from "./Pages/Register";
 import AuthProvider from "./Providers/AuthProvider";
 import Login from "./Pages/Login";
 import HomePage from "./Pages/Home/HomePage";
-import AddProduct from "./Pages/AddProduct/AddProduct";
 import PrivateRoute from "./Routes/PrivateRoute";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import ProductDetails from "./Pages/ProductDetails/ProductDetails";
-import MyProduct from "./Pages/MyProduct/MyProduct";
-import EditProduct from "./Pages/EditProduct/EditProduct";
 import Profile from "./Pages/Profile/Profile";
 import EditProfile from "./Pages/Profile/EditProfile";
+import EditProduct from "./Pages/Product/EditProduct";
+import ProductDetails from "./Pages/Product/ProductDetails";
+import MyProduct from "./Pages/Product/MyProduct";
+import AddProduct from "./Pages/Product/AddProduct";
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
         path: "/profile",
         element: (
           <PrivateRoute>
@@ -39,20 +43,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/profile",
-        element: <Login></Login>,
-      },
-      {
-        path: "/profile",
-        element: <Login></Login>,
-      },
-      {
         path: "profile/edit-user/:id",
         element: <EditProfile></EditProfile>,
+      },
+      {
+        path: "/add-product",
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-product",
